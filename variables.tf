@@ -16,7 +16,7 @@ variable "instance_type" {
 }
 
 variable "ssh_key_name" {
-  description = "Name of ssh key pair to assign to EC2 instance"
+  description = "Name of ssh key pair to assign to EC2 instance. Must already exist in AWS."
   type        = string
   default     = ""
 }

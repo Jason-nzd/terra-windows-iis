@@ -1,5 +1,5 @@
 resource "aws_instance" "ec2_win" {
-  ami                    = data.aws_ami.latest-amazon-linux.id
+  ami                    = data.aws_ami.latest-windows.id
   instance_type          = var.instance_type
   key_name               = var.ssh_key_name
   vpc_security_group_ids = [aws_security_group.sg-web-server.id]

@@ -21,13 +21,18 @@ data "http" "myip" {
   url = "http://ipv4.icanhazip.com"
 }
 
-data "aws_ami" "latest-windows-2016" {
+data "aws_ami" "latest-windows" {
   most_recent = true
   owners      = ["amazon"]
 
   filter {
     name   = "name"
-    values = ["al2023-ami-*"] # to fix with correct windows ami prefix
+    values = ["Windows_Server-2019-English-Full-Base-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
   }
 
   filter {

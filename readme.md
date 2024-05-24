@@ -3,7 +3,8 @@
 This Terraform code deploys a simple EC2 Server running Windows Server 2019 with IIS as a web server.
 
 Once deployed it is ready to be used with remote desktop. The server address, username, decrypted password, and a quick RDP command are provided as outputs.
-A security group is also created on the default VPC with open ports for HTTP and HTTPS. RDP Port 3389 is whitelisted to the auto-detected IP address that applied this script.
+
+A security group is also created on the default VPC with open ports for `HTTP` and `HTTPS`. `RDP Port 3389` is whitelisted to the auto-detected IP address that applied this script.
 
 ## Setup
 
@@ -13,21 +14,28 @@ The default variables can be overwritten in `variables.tf`, or alternatively cre
 
 ```terraform
 ssh_key_name       = <AWS KeyPair Name (without .pem)>
-ssh_key_local_path = <Local Path to .pem file>
+ssh_key_local_path = <Local Path to key pair .pem file>
 ``````
 
-Initialize and validate with:
+Initialize and Plan with:
 
 ```terraform
-terraform init
-terraform validate
+terraform init -upgrade
+terraform plan
 ```
 
-Create and destroy the infrastructure with:
+Create infrastructure with without local.tfvars file:
 
 ```terraform
 terraform apply
+terraform apply -varfile local.tfvars
+```
+
+Remove infrastructure with:
+
+```terraform
 terraform destroy
+terraform destroy -varfile local.tfvars
 ```
 
 ## Outputs

@@ -15,14 +15,13 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
-variable "ssh_key_name" {
-  description = "Name of ssh key pair to assign to EC2 instance. Must already exist in AWS."
+variable "ssh_key_local_path" {
+  description = "Path to local ssh key Eg. C:\\Users\\You\\Documents\\"
   type        = string
-  default     = ""
 }
 
-variable "ssh_key_local_path" {
-  description = "Path to local ssh key"
+variable "ssh_key_name" {
+  description = "Name of SSH key pair to assign to EC2 instance. Must already exist in AWS."
   type        = string
-  default     = ""
 }
+
